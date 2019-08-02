@@ -29,7 +29,7 @@ spec:
       containers:
         - name: {{ .Chart.Name }}
           env:
-           - name: {{ include "login.fullname" . }}-config
+           - name: PASSWDFILE
              value: "root/tconfig-file.conf"
           image: "slate-ci/login-node"
           volumeMounts:
