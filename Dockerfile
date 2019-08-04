@@ -17,6 +17,4 @@ RUN \
 
 ADD container-files /
 
-EXPOSE 22
-
 ENTRYPOINT ["/config/bootstrap.sh"]
