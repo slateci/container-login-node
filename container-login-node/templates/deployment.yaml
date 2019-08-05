@@ -22,7 +22,7 @@ spec:
       volumes:
       - name: {{ include "login.name" . }}-config
         configMap:
-          name: PASSWDFILE
+          name: {{ include "login.fullname" . }}-config
           items:
            - key: tconfig-file.conf
              path: tconfig-file.conf
@@ -32,6 +32,7 @@ spec:
            - name: PASSWDFILE
              value: "root/tconfig-file.conf"
           image: "slate-ci/login-node"
+          imagePullPolicy: IfNotPresent
           volumeMounts:
             - name: {{ include "login.name" . }}-config
               mountPath:  /root/tconfig-file.conf
